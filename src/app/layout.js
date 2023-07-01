@@ -15,9 +15,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       {/* What we write here will be added to all the pages like we can add navbar and footer */}
       <body className={inter.className}>
-        <Navbar/>
-        {children}
-        <Footer/>
+        <div className='container'>
+          <Navbar/>
+          {children}
+          <Footer/>
+        </div>
         </body>
     </html>
   )
