@@ -1,9 +1,30 @@
 import React from 'react'
-import styles from './page.modules.css'
+import styles from './page.module.css'
+import Image from 'next/image'
+import Button from '@/components/button/button'
 
 const Contact = () => {
   return (
-    <div className={styles.container}>Contact</div>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Let's Keep in Touch</h1>
+      <div className={styles.content}>
+        <div className={styles.imgContainer}>
+          <Image
+          className={styles.img}
+          src='/contact.jpg'
+          alt=''
+          fill={true}
+          >
+          </Image>
+        </div>
+        <form action="" className={styles.form}>
+          <input type="text" className={styles.text} placeholder='name' />
+          <input type="email" className={styles.text} placeholder='email' />
+          <textarea cols="30" rows="10" placeholder='message' className={styles.textarea}></textarea>
+          <Button url='#'text='Submit'></Button>        
+        </form>
+      </div>
+    </div>
   )
 }
 

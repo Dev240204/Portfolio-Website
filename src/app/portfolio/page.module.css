@@ -1,0 +1,46 @@
+.container{
+
+}
+
+.mainTitle{
+    font-size: 70px;
+}
+
+.headTitle{
+    margin: 20px 0;
+    font-size: 30px;
+}
+
+.items{
+    display: flex;
+    gap: 50px;
+}
+
+.item{
+    border: 3px solid #696a72;
+    width: 200px;
+    height: 300px;
+    position: relative;
+    border-radius: 5px;
+    background-size: cover !important;
+}
+.item:nth-child(1){
+    background: url("/Illustration.jpg")
+}
+.item:nth-child(2){
+    background: url("/website.jpg")
+}
+.item:nth-child(3){
+    background: url("/application1.jpg")
+}
+.item:hover .title{
+    color: rgba(110, 110, 255, 0.845);
+}
+.title{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 23px;
+    font-weight: 700;
+    color: #cacaca;
+}

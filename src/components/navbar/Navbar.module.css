@@ -1,0 +1,31 @@
+.container{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    font-size: 22px;
+    font-weight: 700;
+    margin: 5px 0 0 0;
+}
+.links{
+    display:flex;
+    align-items: center;
+    gap: 20px;
+}
+.link:hover{
+    text-shadow: 0 0 2px rgba(198, 189, 189, 0.801);
+}
+.logout{
+    cursor: pointer;
+    font-size:medium;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    color: #ffffff;
+    background-color: rgb(100, 100, 255);
+}
+.logout:hover{
+    box-shadow: 0 0 2px white;
+}

@@ -1,7 +1,8 @@
 "use client"
 import Link from 'next/link'
 import React from 'react'
-import styles from './navbar.modules.css'
+import styles from './Navbar.module.css'
+import DarkModeToggle from '../DarkModeToggle/DarkModeToggle'
 
 const links = [
     {
@@ -40,10 +41,11 @@ const Navbar = () => {
     <div className={styles.container}>
         <Link href="/" className={styles.logo}>lorem</Link>
         <div className={styles.links}>
+            <DarkModeToggle/>            
             {links.map(link=>(
                 <Link href={link.url} key={link.id} className={styles.link}>{link.title}</Link>
             ))}
-            <button onClick={()=>{console.log("logged Out")}}>
+            <button onClick={()=>{console.log("logged Out")}} className={styles.logout}>
                 Logout
             </button>
         </div>

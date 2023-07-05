@@ -1,9 +1,41 @@
 import React from 'react'
-import styles from './page.modules.css'
+import styles from './page.module.css'
+import Link from 'next/link'
+import Image from 'next/image'
 
-const Blog = () => {
+async function getdata(){
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts',{
+    // next : {revalidate:10},  // it will re validate data after every 10s
+    cache : "no-store"   // it will dynamicaly changes data everytime
+  })
+  if(!res.ok){
+    throw new Error('Failed to fetch data')
+  }
+  return res.json()
+}
+
+const Blog = async () => {
+  const data = await getdata()
   return (
-    <div className={styles.container}>Blog</div>
+    <div className={styles.mainContainer}>
+      {data.map((item)=>(
+        <Link href='/blog/testid' className={styles.container} key={item.id}>
+          <div className={styles.imgContainer}>
+            <Image
+            className={styles.img}
+            src='/blog.jpg'
+            alt=''
+            width={300}
+            height={250}
+            ></Image>
+          </div>
+          <div className={styles.content}>
+            <h1 className={styles.title}>{item.title}</h1>
+            <p className={styles.desc}>{item.body}</p>
+          </div>
+        </Link>
+      ))}
+    </div>
   )
 }
 
