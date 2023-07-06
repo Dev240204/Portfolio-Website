@@ -2,7 +2,7 @@
 import React, { useContext } from 'react'
 import styles from './DarkModeToggle.module.css'
 import { FaMoon, FaSun } from 'react-icons/fa';
-import { ThemeContext } from '../../../context/ThemeContext';
+import { ThemeContext } from '../../context/ThemeContext';
 
 
 const DarkModeToggle = () => {
