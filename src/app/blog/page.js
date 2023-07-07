@@ -4,9 +4,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 async function getdata(){
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts',{
+  const res = await fetch('http://localhost:3000/api/posts',{
     // next : {revalidate:10},  // it will re validate data after every 10s
-    cache : "no-store"   // it will dynamicaly changes data everytime
+    // cache : "no-store"   // it will dynamicaly changes data everytime
   })
   if(!res.ok){
     throw new Error('Failed to fetch data')
@@ -19,11 +19,11 @@ const Blog = async () => {
   return (
     <div className={styles.mainContainer}>
       {data.map((item)=>(
-        <Link href='/blog/testid' className={styles.container} key={item.id}>
+        <Link href={`/blog/${item._id}`} className={styles.container} key={item._id}>
           <div className={styles.imgContainer}>
             <Image
             className={styles.img}
-            src='/blog.jpg'
+            src={item.img}
             alt=''
             width={300}
             height={250}
@@ -31,7 +31,7 @@ const Blog = async () => {
           </div>
           <div className={styles.content}>
             <h1 className={styles.title}>{item.title}</h1>
-            <p className={styles.desc}>{item.body}</p>
+            <p className={styles.desc}>{item.desc}</p>
           </div>
         </Link>
       ))}

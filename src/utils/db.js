@@ -2,13 +2,21 @@ import mongoose from "mongoose";
 
 mongoose.set('strictQuery', true)
 
-console.log(process.env.MONGO)
+const options = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    auth: {
+      username: 'dev',
+      password: process.env.PASSWORD
+    },
+    dbName: 'devport'
+  };
 
 const connect = async ()=>{
     try{
-        await mongoose.connect(process.env.MONGO)
+        await mongoose.connect(process.env.MONGO,options)
     }catch(e){
-        throw new Error('Connection Failed')
+        throw new Error('Connection Failed'+e)
     }
 };
 
