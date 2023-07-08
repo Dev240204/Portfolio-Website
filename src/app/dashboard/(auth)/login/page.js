@@ -1,14 +1,67 @@
 'use client'
-import { signIn } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react'
 import React from 'react'
 import styles from './page.module.css'
+import Link from 'next/link'
+import { useRouter } from "next/navigation";
 
 const Login = () => {
+  const router = useRouter()
+  const session = useSession()
+
+  if(session.status==='loading'){
+    return (
+      <p>Loading...</p>
+    )
+  }
+  if(session.status==='authenticated'){
+    router?.push('/dashboard')
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const email = e.target[0].value;
+    const password = e.target[1].value;
+
+    signIn("credentials", {
+      email,
+      password,
+    });
+  };
+
   return (
     <div className={styles.container}>
-      <button onClick={()=>signIn('google')}>Login with Google</button>
-    </div>
-  )
-}
+      <h2 className={styles.subtitle}>Please sign in to see the dashboard.</h2>
 
-export default Login
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <input
+          type="text"
+          placeholder="Email"
+          required
+          className={styles.input}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          required
+          className={styles.input}
+        />
+        <button className={styles.button}>Login</button>
+      </form>
+      <button
+        onClick={() => {
+          signIn("google");
+        }}
+        className={styles.button + " " + styles.google}
+      >
+        Login with Google
+      </button>
+      <span className={styles.or}>- OR -</span>
+      <Link className={styles.link} href="/dashboard/register">
+        Create new account
+      </Link>
+    </div>
+  );
+};
+
+export default Login;

@@ -1,0 +1,53 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+.title{
+    font-size: 30px;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+.input{
+    padding: 20px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: inherit;
+    border: 3px solid #696a72;
+    font-size: 17px;
+    font-weight: bold;
+}
+.btn{
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+    font-size: 17px;
+    background-color: rgb(88, 88, 218);
+    color: white;
+}
+.btn:hover{
+    background-color: rgb(107, 107, 255);
+    box-shadow: 0 0 2px #bbb;
+}
+.or {
+    color: inherit;
+  }
+  
+  .link {
+    text-decoration: underline;
+    color: inherit;
+  }
+  
+  .link:hover {
+    color: rgb(61, 61, 61);
+  }
