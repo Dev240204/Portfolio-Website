@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { PageNotFoundError } from 'next/dist/shared/lib/utils'
 
 async function getdata(id){
-  const res = await fetch(`/api/posts/${id}`,{
+  const res = await fetch(`devport244241.netlify.app/api/posts/${id}`,{
     // next : {revalidate:10},  // it will re validate data after every 10s
     cache : "no-store"   // it will dynamicaly changes data everytime
   })
