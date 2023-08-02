@@ -4,10 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 async function getdata(){
-  const res = await fetch('/api/posts',{
-    // next : {revalidate:10},  // it will re validate data after every 10s
-    // cache : "no-store"   // it will dynamicaly changes data everytime
-  })
+  const res = await fetch('/api/posts')
   if(!res.ok){
     throw new Error('Failed to fetch data')
   }
