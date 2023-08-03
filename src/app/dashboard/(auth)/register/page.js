@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 
 const Register = () => {
   const [error, setError] = useState(null);
@@ -17,7 +18,7 @@ const Register = () => {
 
     try {
       // https://devport244241.netlify.app
-      const res = await fetch(`https://devport244241.netlify.app/api/auth/register`, {
+      const res = await axios.get(`/api/auth/register`, {
         next : {revalidate:3600},
         method: "POST",
         headers: {

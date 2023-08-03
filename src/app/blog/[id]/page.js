@@ -3,11 +3,12 @@ import React from 'react'
 import styles from './page.module.css'
 import Image from 'next/image'
 import { PageNotFoundError } from 'next/dist/shared/lib/utils'
+import axios from 'axios'
 
 async function getdata(id){
   // https://devport244241.netlify.app
   // https://devport244241.netlify.app/api/posts/${id}
-  const res = await fetch(`https://devport244241.netlify.app/api/posts/${id}`,{
+  const res = await axios.get(`/api/posts/${id}`,{
     next : {revalidate:3600},  // it will re validate data after every 10s
     // cache : "no-store"   // it will dynamicaly changes data everytime
   })
@@ -17,13 +18,13 @@ async function getdata(id){
   return res.json()
 }
 
-// export async function generateMetadata ({params}){
-//   const post = await getdata(params.id)
-//   return {
-//     title: post.title,
-//     description: post.desc
-//   }
-// }
+export async function generateMetadata ({params}){
+  const post = await getdata(params.id)
+  return {
+    title: post.title,
+    description: post.desc
+  }
+}
 
 const BlogPost = async ({params}) => {
   const data = await getdata(params.id)
