@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import styles from './page.module.css'
 import Link from 'next/link'
@@ -6,7 +7,7 @@ import Image from 'next/image'
 async function getdata(){
   // https://devport244241.netlify.app
   // http://localhost:3000/api/posts
-  const res = await fetch(`${window.location.origin}/api/posts`)
+  const res = await fetch(`https://devport244241.netlify.app/api/posts`)
   if(!res.ok){
     throw new Error('Failed to fetch data')
   }

@@ -17,7 +17,7 @@ const Register = () => {
 
     try {
       // https://devport244241.netlify.app
-      const res = await fetch(`${window.location.origin}/api/auth/register`, {
+      const res = await fetch(`https://devport244241.netlify.app/api/auth/register`, {
         next : {revalidate:3600},
         method: "POST",
         headers: {
