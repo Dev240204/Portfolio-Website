@@ -7,7 +7,7 @@ import axios from 'axios'
 async function getdata(id){
   // https://devport244241.netlify.app
   // https://devport244241.netlify.app/api/posts/${id}
-  const res = await axios.get(`/api/posts/${id}`,{
+  const res = await axios.get(`http://localhost:3000/api/posts/${id}`,{
     next : {revalidate:3600},  // it will re validate data after every 10s
     // cache : "no-store"   // it will dynamicaly changes data everytime
   })

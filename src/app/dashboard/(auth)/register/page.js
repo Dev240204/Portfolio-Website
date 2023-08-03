@@ -18,7 +18,7 @@ const Register = () => {
 
     try {
       // https://devport244241.netlify.app
-      const res = await axios.get(`/api/auth/register`, {
+      const res = await axios.get(`http://localhost:3000/api/auth/register`, {
         next : {revalidate:3600},
         method: "POST",
         headers: {
