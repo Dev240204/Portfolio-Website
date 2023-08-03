@@ -16,7 +16,8 @@ const Register = () => {
     const password = e.target[2].value;
 
     try {
-      const res = await fetch("devport244241.netlify.app/api/auth/register", {
+      const res = await fetch("https://devport244241.netlify.app/api/auth/register", {
+        next : {revalidate:3600},
         method: "POST",
         headers: {
           "Content-Type": "application/json",
