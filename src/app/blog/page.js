@@ -5,7 +5,8 @@ import Image from 'next/image'
 
 async function getdata(){
   // https://devport244241.netlify.app
-  const res = await fetch('https://devport244241.netlify.app/api/posts')
+  // http://localhost:3000/api/posts
+  const res = await fetch(`${window.location.origin}/api/posts`)
   if(!res.ok){
     throw new Error('Failed to fetch data')
   }
